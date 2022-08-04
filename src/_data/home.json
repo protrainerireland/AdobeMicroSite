@@ -16,7 +16,7 @@
             "image": "img/adobelogos.png"
         },        
         {
-            "id": "aboutindesign",
+            "id": "indesign",
             "link": "/#indesign", 
             "text": "About InDesign", 
             "title": "About InDesign", 
@@ -31,7 +31,7 @@
             }
         },
         {
-            "id": "aboutillustrator",
+            "id": "illustrator",
             "link": "/#illustrator", 
             "text": "About Illustrator", 
             "title": "About Illustrator", 
@@ -46,7 +46,7 @@
             }
         },
         {
-            "id": "aboutphotoshop",
+            "id": "photoshop",
             "link": "/#photoshop", 
             "text": "About Photoshop", 
             "title": "About Photoshop", 
