@@ -21,11 +21,8 @@ module.exports = async function() {
     type: "json"
   });
 
-  let schedule = json.flatMap(keyword => keyword.schedule);
 
-  //console.log(schedule);
-
-  let distinctCourseList = json.flatMap(keyword => keyword.courses)
+  distinctCourseList = json.flatMap(keyword => keyword.courses)
                            .filter((course, index, courses) => courses.findIndex(c=>c.id==course.id) == index);
 
   let distinctMicrositeKeywordList = json.flatMap(keyword=> keyword.microsite_keywords)
@@ -47,10 +44,6 @@ module.exports = async function() {
 
   console.log(distinctMicrositeKeywordList);
 
-
-
-
-
   
   url = `http://professional.ie/api/getLandingPageTextForKeywords.php?keywords[]=${distinctMicrositeKeywordList.join("&keywords[]=")}`;
 
@@ -65,13 +58,11 @@ module.exports = async function() {
   let msKeywordData = json.map(keyword=> {
    
     //console.log(keyword);
-      return {
+    return {
       keyword: keyword.keyword, 
       paragraphs: keyword.paragraphs, 
-      courses: distinctCourseList.filter(course=>course.searchWords.includes(keyword.keyword))
+      courses: distinctCourseList.filter(course=>course.searchWords.includes(keyword.keyword)), 
     }
-
- 
   });
 
   
