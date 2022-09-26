@@ -34,12 +34,6 @@ module.exports = {
 
     slugify,
     asAccordion: function (data) {
-
-        console.log("*********");
-        console.log("asAccordion");
-
-        console.log(data[0].keyword);
-        console.log(data[1].keyword);
         
         let topics = data.reduce((result, current, index) => {
 
@@ -89,8 +83,6 @@ module.exports = {
                         </div>
                     </div>
                 </section>`;
-
-        console.log("Accordion created!");
         return html;
 
     }, 
@@ -114,6 +106,10 @@ module.exports = {
                         </section>`;
                 break;
             
+            case 'placeholder':
+                html = ``;
+                break;
+
             case 'banner':
 
                 html = `<section class="section banner">
@@ -175,7 +171,10 @@ module.exports = {
                                 data-aos="fade-right" ${ animationDelay }  ${animationOffset}
                                 data-aos-anchor="#${section.id}"
                                 >
-                                    <img src="${ section.image }" class="img-fluid" alt="">
+                                    <img src="${ section.image }" 
+                                        ${section.imageWidth ? 'width=\"' :''} 
+                                        ${section.imageWidth ? '' + section.imageWidth + '\"':''}   
+                                        class="img-fluid" alt="">                                 
                                 </div>`;
                     }    
 
@@ -222,7 +221,11 @@ module.exports = {
                                 data-aos="fade-right" ${ animationDelay }  ${animationOffset}
                                 data-aos-anchor="#${section.id}"
                         >
-                                    <img src="${ section.image }" class="img-fluid" alt="">
+                                
+                        <img src="${ section.image }" 
+                            ${section.imageWidth ? 'width=\"' :''} 
+                            ${section.imageWidth ? '' + section.imageWidth + '\"':''}
+                            class="img-fluid" alt="">
                                 </div>`;
                     }    
     
